@@ -1,6 +1,6 @@
 version: '2.1'
 orbs:
-  dastardly: portswigger/dastardly@0.2.1
+  dastardly: portswigger/dastardly
 jobs:
   scan-with-test-results:
     machine:
