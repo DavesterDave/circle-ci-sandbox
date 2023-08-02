@@ -1,6 +1,6 @@
 version: '2.1'
 orbs:
-  dastardly: portswigger/dastardly@0.1.2
+  burp-suite-enterprise: portswigger/burp-suite-enterprise@0.1.3
 jobs:
   scan-with-test-results:
     machine:
@@ -8,11 +8,12 @@ jobs:
     resource_class: medium
     steps:
       - checkout
-      - dastardly/scan:
-          output_filename: scan_report1.xml
-          target_url: https://portswigger-labs.net
+      - burp-suite-enterprise/scan:
+          enterprise_api_key: 7dc16dc910667cf0b857ffe554e4be3b
+          enterprise_server_url: https://2071b7b4.portswigger.cloud
+          start_url: https://portswigger-labs.net
       - store_test_results:
-          path: scan_report1.xml
+          path: burp_junit_report.xml
 workflows:
   use-my-orb:
     jobs:
